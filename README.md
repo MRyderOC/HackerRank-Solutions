@@ -1,2 +1,2 @@
 # HackerRank-Solutions
-Solutions to HackerRank.com Problems
+Solutions to [HackerRank](https://www.hackerrank.com/) Problems
