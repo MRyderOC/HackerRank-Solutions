@@ -1,0 +1,2 @@
+3: Equijoins
+4: Left to right

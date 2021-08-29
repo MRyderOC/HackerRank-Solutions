@@ -1,0 +1,2 @@
+1: Join
+2: Cartesian product
