@@ -1,0 +1,3 @@
+MCQ 1: n-1
+MCQ 2: Segment Tree
+MCQ 3: Stack
