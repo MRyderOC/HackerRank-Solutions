@@ -1,3 +1,3 @@
 while read line; do
-  echo $line | cut -c3
+  echo $line | cut -c2-7
 done
