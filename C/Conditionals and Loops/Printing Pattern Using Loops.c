@@ -13,9 +13,9 @@ int main()
     scanf("%d", &n);
 
   	// Complete the code to print the pattern.
-    for(int i = 0; i < 2 * n - 1; i++) {
-        for(int j = 0; j < 2 * n - 1; j++) {
-            int to_print = max(abs(n - i - 1) + 1, abs(n - j - 1) + 1);
+    for(int i = 1; i < 2 * n; i++) {
+        for(int j = 1; j < 2 * n; j++) {
+            int to_print = max(abs(n - i) + 1, abs(n - j) + 1);
             printf("%d ", to_print);
         }
         printf("\n");
