@@ -21,19 +21,8 @@ def findPoint(px, py, qx, qy) -> list:
     # Write your code here
     dif_x = abs(px - qx)
     dif_y = abs(py - qy)
-    if px > qx:
-        rx = qx - dif_x
-    elif px < qx:
-        rx = qx + dif_x
-    else:
-        rx = px
-
-    if py > qy:
-        ry = qy - dif_y
-    elif py < qy:
-        ry = qy + dif_y
-    else:
-        ry = py
+    rx = qx - dif_x if px > qx else qx + dif_x
+    ry = qy - dif_y if py > qy else qy + dif_y
 
     return [rx, ry]
 
