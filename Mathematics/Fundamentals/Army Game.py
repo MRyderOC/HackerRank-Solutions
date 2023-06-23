@@ -18,8 +18,8 @@ import sys
 def gameWithCells(n, m):
     # Write your code here
     n2, m2 = n // 2, m // 2
-    n_m, m_m = n % 2, m % 2
-    return (n2 * m2) + (m_m * n2 + n_m * m2) + (n_m * m_m)
+    n_mod, m_mod = n % 2, m % 2
+    return (n2 * m2) + (m_mod * n2 + n_mod * m2) + (n_mod * m_mod)
     
 
 if __name__ == '__main__':
