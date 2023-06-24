@@ -14,13 +14,18 @@ import sys
 #
 
 def reverseArray(a):
+    # Sushi approach
+    return a[::-1]
+
     # Old school approach
     l = []
     for i in range(len(a)-1, -1, -1):
         l.append(a[i])
     return l
+
     # Old school list comprehension approach
     return [a[i] for i in range(len(a)-1, -1, -1)]
+
     # Built-in approach
     return reversed(a)
 
