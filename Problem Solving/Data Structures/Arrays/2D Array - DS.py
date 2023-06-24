@@ -18,10 +18,10 @@ def hourglassSum(arr):
     l = []
     for row in range(4):
         for col in range(4):
-            r1 = arr[row][col] + arr[row][col+1] + arr[row][col+2]
-            r2 = arr[row+1][col+1]
-            r3 = arr[row+2][col] + arr[row+2][col+1] + arr[row+2][col+2]
-            l.append(r1+r2+r3)
+            r1 = arr[row][col] + arr[row][col + 1] + arr[row][col + 2]
+            r2 = arr[row + 1][col + 1]
+            r3 = arr[row + 2][col] + arr[row + 2][col + 1] + arr[row + 2][col + 2]
+            l.append(r1 + r2 + r3)
     return max(l)
 
 if __name__ == '__main__':
