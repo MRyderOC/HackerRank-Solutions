@@ -19,7 +19,7 @@ def dynamicArray(n, queries):
     out = []
     arr = [[] for i in range(n)]
     last_answer = 0
-    
+
     for q in queries:
         idx = (q[1] ^ last_answer) % n
         if q[0] == 1:
@@ -27,10 +27,10 @@ def dynamicArray(n, queries):
         elif q[0] == 2:
             last_answer = arr[idx][q[2] % len(arr[idx])]
             out.append(last_answer)
-            
+
     return out
-    
-    
+
+
 
 if __name__ == '__main__':
     fptr = open(os.environ['OUTPUT_PATH'], 'w')
