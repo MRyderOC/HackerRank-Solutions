@@ -5,6 +5,7 @@ import os
 import random
 import re
 import sys
+from collections import defaultdict
 
 #
 # Complete the 'matchingStrings' function below.
@@ -16,7 +17,15 @@ import sys
 #
 
 def matchingStrings(strings, queries):
-    return [strings.count(q) for q in queries]
+    # # One liner
+    # return [strings.count(q) for q in queries]
+
+    str_map  = defaultdict(int)
+    for s in strings:
+        str_map[s] += 1
+
+    return [str_map[q] for q in queries]
+
 
 if __name__ == '__main__':
     fptr = open(os.environ['OUTPUT_PATH'], 'w')
