@@ -56,23 +56,22 @@ def print_singly_linked_list(node, sep, fptr):
 #
 
 def insertNodeAtPosition(llist, data, position):
+    new_node = SinglyLinkedListNode(data)
+
     if position == 0:
-        new_node = SinglyLinkedListNode(data)
         new_node.next = llist
         return new_node
-          
+
     p1 = llist
     p2 = p1.next
-    for i in range(position-1):
+    for _ in range(position - 1):
         p1 = p1.next
         p2 = p1.next
-    new_node = SinglyLinkedListNode(data)
+
     p1.next = new_node
     new_node.next = p2
     return llist
-        
-        
-        
+
 
 if __name__ == '__main__':
     fptr = open(os.environ['OUTPUT_PATH'], 'w')
