@@ -57,7 +57,7 @@ def reversePrint(llist):
     else:
         reversePrint(llist.next)
         print(llist.data)
-    
+
 
 if __name__ == '__main__':
     tests = int(input())
