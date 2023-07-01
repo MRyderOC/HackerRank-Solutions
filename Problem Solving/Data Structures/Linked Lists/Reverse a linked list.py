@@ -56,12 +56,7 @@ def reverse(llist):
     # 0-node, 1-node Linked List
     if llist is None or llist.next is None:
         return llist
-    # 2-node Linked List
-    if llist.next.next is None:
-        tmp = llist.next
-        tmp.next = llist
-        llist.next = None
-        return tmp
+
     # more than 2-node Linked List
     p1 = None
     p2 = llist
@@ -72,8 +67,9 @@ def reverse(llist):
         p2 = p3
         p3 = p3.next
     p2.next = p1
+
     return p2
-    
+
 
 if __name__ == '__main__':
     fptr = open(os.environ['OUTPUT_PATH'], 'w')
