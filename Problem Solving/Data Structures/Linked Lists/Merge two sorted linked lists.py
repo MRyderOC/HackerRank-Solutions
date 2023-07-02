@@ -47,44 +47,77 @@ def print_singly_linked_list(node, sep, fptr):
 #
 #
 def mergeLists(head1, head2):
-    def merge(p1, p2, insert_node):
-        head = insert_node
-        while True:
-            if p2 is None:
-                return head
-            elif p1 is None:
-                insert_node.next = p2
-                return head
-            
-            if p1.data <= p2.data:
-                p1 = p1.next
-                insert_node = insert_node.next
-            else:
-                tmp = p2.next
-                insert_node.next = p2
-                p2.next = p1
-                insert_node = insert_node.next
-                p2 = tmp
-    
+    # # Solution 1: Using helper function
+    # def merge(p1, p2, insert_node):
+    #     head = insert_node
+    #     while True:
+    #         if p2 is None:
+    #             return head
+    #         elif p1 is None:
+    #             insert_node.next = p2
+    #             return head
+
+    #         if p1.data <= p2.data:
+    #             p1 = p1.next
+    #             insert_node = insert_node.next
+    #         else:
+    #             tmp = p2.next
+    #             insert_node.next = p2
+    #             p2.next = p1
+    #             insert_node = insert_node.next
+    #             p2 = tmp
+
+    # if head1 is None:
+    #     return head2
+    # if head2 is None:
+    #     return head1
+
+    # flag = True if head1.data <= head2.data else False
+
+    # if flag:
+    #     p1, p2, tmp = head1.next, head2, head1
+    #     return merge(p1, p2, tmp)
+    # else:
+    #     p1, p2, tmp = head1, head2.next, head2
+    #     return merge(p2, p1, tmp)
+
+    # Solution 2
     if head1 is None:
         return head2
     if head2 is None:
         return head1
-    
-    flag = True if head1.data <= head2.data else False
-    
-    if flag:
-        p1, p2, tmp = head1.next, head2, head1
-        return merge(p1, p2, tmp)
+
+    # Find the minimum node
+    if head1.data <= head2.data:
+        out_head = head1
+        head1 = head1.next
     else:
-        p1, p2, tmp = head1, head2.next, head2
-        return merge(p2, p1, tmp)
-    
-    
-    
-                
-            
-    
+        out_head = head2
+        head2 = head2.next
+
+    tmp = out_head
+    while True:
+        if head1 is None:
+            tmp.next = head2
+            break
+        if head2 is None:
+            tmp.next = head1
+            break
+
+        if head1.data <= head2.data:
+            min_node = head1
+            head1 = head1.next
+        else:
+            min_node = head2
+            head2 = head2.next
+
+        tmp.next = min_node
+        tmp = tmp.next
+
+    return out_head
+
+
+
 
 if __name__ == '__main__':
     fptr = open(os.environ['OUTPUT_PATH'], 'w')
