@@ -57,13 +57,13 @@ def print_singly_linked_list(node, sep, fptr):
 def getNode(llist, positionFromTail):
     p1 = llist
     tmp = p1
-    for i in range(positionFromTail):
+    for _ in range(positionFromTail):
         tmp = tmp.next
-        
+
     while tmp.next is not None:
         p1 = p1.next
         tmp = tmp.next
-        
+
     return p1.data
 
 
