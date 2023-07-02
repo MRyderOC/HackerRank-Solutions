@@ -55,10 +55,10 @@ def print_singly_linked_list(node, sep, fptr):
 def removeDuplicates(llist):
     if llist is None:
         return None
-    
+
     p1 = llist
     p2 = p1.next
-    
+
     while p2 is not None:
         if p1.data == p2.data:
             p1.next = p2.next
@@ -66,9 +66,9 @@ def removeDuplicates(llist):
         else:
             p1 = p1.next
             p2 = p1.next
-    
+
     return llist
-    
+
 
 if __name__ == '__main__':
     fptr = open(os.environ['OUTPUT_PATH'], 'w')
