@@ -60,9 +60,8 @@ def findMergeNode(head1, head2):
             continue
         p1 = p1.next
         p2 = p2.next
+
     return p1.data
-        
-        
 
 if __name__ == '__main__':
     fptr = open(os.environ['OUTPUT_PATH'], 'w')
