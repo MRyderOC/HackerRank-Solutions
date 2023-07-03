@@ -49,20 +49,18 @@ def print_singly_linked_list(node, sep, fptr):
 def has_cycle(head):
     if head is None:
         return 0
-    
+
     p = head
     p_2x = head
     while p_2x is not None and p_2x.next is not None:
         p = p.next
         p_2x = p_2x.next.next
-        
+
         if p is p_2x:
             return 1
-    
+
     return 0
-    
-    
-    
+
 
 if __name__ == '__main__':
     fptr = open(os.environ['OUTPUT_PATH'], 'w')
