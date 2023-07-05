@@ -58,41 +58,67 @@ def print_doubly_linked_list(node, sep, fptr):
 #
 
 def sortedInsert(llist, data):
+    new_node = DoublyLinkedListNode(data)
     # Check for empty llist
     if not llist:
-        return DoublyLinkedListNode(data)
-    # Check for one node llist
-    if llist.data >= data:
-        new_node = DoublyLinkedListNode(data)
+        return new_node
+
+    is_last_node = False
+    tmp = llist
+    while tmp.data <= new_node.data:
+        if tmp.next is None:
+            is_last_node = True
+            break
+        tmp = tmp.next
+
+    if is_last_node:
+        tmp.next = new_node
+        new_node.prev = tmp
+        return llist
+
+    if tmp is llist:
         new_node.next = llist
         llist.prev = new_node
         return new_node
-    # Finding the right node
-    tmp = llist
-    while True:
-        if not tmp.next:
-            new_node = DoublyLinkedListNode(data)
-            tmp.next = new_node
-            new_node.prev = tmp
-            return llist
-        current_data = tmp.data
-        next_data = tmp.next.data
-        if current_data <= data <= next_data:
-            break
-        tmp = tmp.next
-    # Inserting the node
-    p1 = tmp
-    p2 = tmp.next
-    new_node = DoublyLinkedListNode(data)
-    p1.next = new_node
-    new_node.next = p2
-    p2.prev = new_node
-    new_node.prev = p1
-    
+
+    prev_node = tmp.prev
+    prev_node.next = new_node
+    new_node.next = tmp
+    tmp.prev = new_node
+    new_node.prev = prev_node
+
     return llist
-    
-    
-    
+
+    # # Old Solution
+    # # Check for one node llist
+    # if llist.data >= data:
+    #     new_node.next = llist
+    #     llist.prev = new_node
+    #     return new_node
+
+    # # Finding the right node
+    # tmp = llist
+    # while True:
+    #     if not tmp.next:
+    #         tmp.next = new_node
+    #         new_node.prev = tmp
+    #         return llist
+    #     current_data = tmp.data
+    #     next_data = tmp.next.data
+    #     if current_data <= data <= next_data:
+    #         break
+    #     tmp = tmp.next
+
+    # # Inserting the node
+    # p1 = tmp
+    # p2 = tmp.next
+    # p1.next = new_node
+    # new_node.next = p2
+    # p2.prev = new_node
+    # new_node.prev = p1
+
+    # return llist
+
 
 if __name__ == '__main__':
     fptr = open(os.environ['OUTPUT_PATH'], 'w')
