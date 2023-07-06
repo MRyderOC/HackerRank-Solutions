@@ -14,25 +14,24 @@ import sys
 #
 
 def getMax(operations):
-    stack = []
-    track_max = []
-    out = []
+    stack, track_max, out = [], [], []
+
     for operation in operations:
         if operation.startswith('1'):
             x = int(operation.split()[1])
             stack.append(x)
             if not track_max:
                 track_max.append(x)
+            elif x > track_max[-1]:
+                track_max.append(x)
             else:
-                if x > track_max[-1]:
-                    track_max.append(x)
-                else:
-                    track_max.append(track_max[-1])
+                track_max.append(track_max[-1])
         elif operation.startswith('2'):
             stack.pop()
             track_max.pop()
         elif operation.startswith('3'):
             out.append(track_max[-1])
+
     return out
 
 if __name__ == '__main__':
