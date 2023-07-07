@@ -21,20 +21,20 @@ def isBalanced(s):
         elif ch in [')', '}', ']']:
             if not stack:
                 return 'NO'
-            if ch == ')' and stack[-1] == '(':
+
+            top = stack[-1]
+            if ch == ')' and top == '(':
                 stack.pop()
-            elif ch == ']' and stack[-1] == '[':
+            elif ch == ']' and top == '[':
                 stack.pop()
-            elif ch == '}' and stack[-1] == '{':
+            elif ch == '}' and top == '{':
                 stack.pop()
             else:
                 stack.append(ch)
 
     return 'YES' if not stack else 'NO'
 
-            
-            
-            
+
 if __name__ == '__main__':
     fptr = open(os.environ['OUTPUT_PATH'], 'w')
 
