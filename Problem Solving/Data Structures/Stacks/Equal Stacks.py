@@ -25,11 +25,7 @@ def equalStacks(h1, h2, h3):
         return max(intersections)
     else:
         return 0
-    
-    
-    
-    
-    
+
 
 if __name__ == '__main__':
     fptr = open(os.environ['OUTPUT_PATH'], 'w')
