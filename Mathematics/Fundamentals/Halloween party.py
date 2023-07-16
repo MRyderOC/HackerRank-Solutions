@@ -15,10 +15,11 @@ import sys
 
 def halloweenParty(k):
     # Write your code here
+    tmp = k // 2
     if k % 2 == 0:
-        return int((k / 2) ** 2)
+        return tmp ** 2
     else:
-        return (k // 2) * (1 + (k // 2))
+        return tmp * (1 + tmp)
 
 if __name__ == '__main__':
     fptr = open(os.environ['OUTPUT_PATH'], 'w')
