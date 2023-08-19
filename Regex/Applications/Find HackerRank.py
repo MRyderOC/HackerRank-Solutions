@@ -2,7 +2,6 @@ import re
 
 start_pattern = r"^hackerrank.*"
 end_pattern = r".*hackerrank$"
-start_end_pattern = r"^hackerrank(.*)hackerrank$"
 
 n = int(input())
 for _ in range(n):
