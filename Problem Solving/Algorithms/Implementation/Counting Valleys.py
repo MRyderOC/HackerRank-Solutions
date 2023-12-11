@@ -20,13 +20,13 @@ def countingValleys(steps, path):
     valeys = 0
     alt = 0
     for item in path:
-        is_in_sea_level = alt == 0
+        was_in_sea_level = alt == 0
         if item == "D":
             alt -= 1
         elif item == "U":
             alt += 1
 
-        if is_in_sea_level and alt < 0:
+        if was_in_sea_level and alt < 0:
             valeys += 1
 
     return valeys
