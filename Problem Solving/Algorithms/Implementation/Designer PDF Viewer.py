@@ -5,7 +5,6 @@ import os
 import random
 import re
 import sys
-from string import ascii_lowercase
 
 #
 # Complete the 'designerPdfViewer' function below.
@@ -18,7 +17,6 @@ from string import ascii_lowercase
 
 def designerPdfViewer(h, word):
     # Write your code here
-    max_height = 0
     alphabet = "abcdefghijklmnopqrstuvwxyz"
     height_map = {char: h for char, h in zip(alphabet, h)}
     max_height = max([height_map.get(ch) for ch in word])
