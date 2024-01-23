@@ -24,8 +24,7 @@ def howManyGames(p, d, m, s):
     while s >= current_price:
         s -= current_price
         count += 1
-        if current_price > m:
-            current_price = max(current_price - d, m)
+        current_price = max(current_price - d, m)
 
     return count
 
