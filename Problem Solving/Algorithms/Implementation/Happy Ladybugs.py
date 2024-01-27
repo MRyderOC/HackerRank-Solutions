@@ -28,7 +28,7 @@ def happyLadybugs(b):
             return "NO"
 
     if vacants_num == 0:
-        for i in range(1, n - 2):
+        for i in range(1, len(b) - 2):
             if b[i] != b[i - 1] and b[i] != b[i + 1]:
                 return "NO"
 
