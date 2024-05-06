@@ -24,6 +24,13 @@ def theLoveLetterMystery(s):
 
     return count
 
+    # One liner approach
+    n = len(s)
+    return sum(
+        abs(ord(s[i]) - ord(s[n - i - 1]))
+        for i in range(n // 2)
+    )
+
 
 if __name__ == '__main__':
     fptr = open(os.environ['OUTPUT_PATH'], 'w')
