@@ -42,30 +42,29 @@ def timeInWords(h, m):
         30: "half"
     }
 
-    hour = number_word_map[h]
+    hour, mins = number_word_map[h], number_word_map.get(m)
     if m == 0:
-        return f"{number_word_map[h]} o' clock"
+        return f"{hour} o' clock"
     elif m == 1:
-        return f"{number_word_map[m]} minute past {hour}"
+        return f"{mins} minute past {hour}"
     elif m == 15 or m == 30:
-        return f"{number_word_map[m]} past {hour}"
+        return f"{mins} past {hour}"
     elif m < 30:
-        if m < 21:
-            return f"{number_word_map[m]} minutes past {hour}"
-        else:
+        if m > 20:
             mins = f"{number_word_map[20]} {number_word_map[m % 10]}"
-            return f"{mins} minutes past {hour}"
+
+        return f"{mins} minutes past {hour}"
     elif m > 31:
         res = 60 - m
-        hour = number_word_map[h + 1]
+        hour, mins = number_word_map[h + 1], number_word_map.get(res)
         if res == 1:
-            return f"{number_word_map[res]} minute to {hour}"
+            return f"{mins} minute to {hour}"
         elif res == 15:
-            return f"{number_word_map[res]} to {hour}"
-        elif res < 21:
-            return f"{number_word_map[res]} minutes to {hour}"
+            return f"{mins} to {hour}"
         else:
-            mins = f"{number_word_map[20]} {number_word_map[res % 10]}"
+            if res > 20:
+                mins = f"{number_word_map[20]} {number_word_map[res % 10]}"
+
             return f"{mins} minutes to {hour}"
 
 
